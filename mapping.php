@@ -2,6 +2,7 @@
 namespace Mapping;
 
 use Mapping\CPT;
+use Mapping\Carbbon;
 use Mapping\RESTController;
 /*
  * Plugin Name: US Map Maker
@@ -20,6 +21,8 @@ use Mapping\RESTController;
 
 // Create post type
 require('includes/cpt.php');
+require('includes/carbon.php');
+require('includes/maps_rest_controller.php');
 
 // Include some scripts (Vue.js, etc)
 
