@@ -12,18 +12,7 @@
  * License URI: http://www.gnu.org/licenses/gpl-2.0.html
 */
 
-// PHP dependencies (carbon, post type, shortcodes, REST, etc.)
-// use Carbon_Fields\Container;
-// use Carbon_Fields\Field;
-
-// add_action( 'carbon_fields_register_fields', 'crb_attach_theme_options' );
-// function crb_attach_theme_options() {
-//     Container::make( 'theme_options', __( 'Map Options', 'crb' ) )
-//         ->add_fields( array(
-//             Field::make( 'text', 'crb_text', 'Text Field' ),
-//         ) );
-// }
-
+// Start Carbon Fields
 function crb_load() {
     require_once( 'vendor/autoload.php' );
     \Carbon_Fields\Carbon_Fields::boot();
@@ -34,7 +23,8 @@ require('includes/cpt.php');
 require('includes/carbon.php');
 require('includes/maps_rest_controller.php');
 require('includes/shortcodes.php');
-// 
-// Include some scripts (Vue.js, etc)
+
+// Include dist scripts (Vue.js, etc)
+
 
 // Include some css (can be overridden by the theme)
