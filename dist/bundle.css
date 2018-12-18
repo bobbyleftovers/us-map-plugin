@@ -1,0 +1,171 @@
+.map-container {
+  position: relative;
+  width: 100%; }
+
+#states {
+  fill: #aaa; }
+  #states .D {
+    fill: #3B618C; }
+  #states .R {
+    fill: #E63A45; }
+  #states .Both {
+    fill: #3F3A6D; }
+  #states .current {
+    fill: black; }
+
+#state-borders {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 1.4px;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+  pointer-events: none; }
+
+#map {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  padding: 0px;
+  border: 0px;
+  border-style: solid;
+  border-color: #bbb;
+  border-radius: 20px;
+  align-content: center; }
+
+#state-name {
+  width: 100%;
+  height: 20px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  text-align: center;
+  font: 20px sans-serif;
+  font-weight: 600;
+  color: #444; }
+
+#comments-box {
+  width: 100%;
+  height: 200px;
+  padding: 5px;
+  border: 1px solid #bbb;
+  border-radius: 20px;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  margin-left: 0px;
+  margin-right: 0px;
+  text-align: center;
+  font: 13px sans-serif;
+  background: white;
+  color: #444; }
+
+#comments-content {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100px;
+  padding: 0px;
+  border: 0px;
+  border-radius: 0px;
+  margin-left: 0px;
+  overflow-y: auto; }
+
+#comments-content a {
+  color: black; }
+
+#comments-content a:hover {
+  font-weight: bold; }
+
+#state-box {
+  width: 100%;
+  height: 200px;
+  padding: 5px;
+  border: 1px;
+  border-style: solid;
+  border-color: #bbb;
+  border-radius: 20px;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  margin-left: 0px;
+  margin-right: 0px;
+  font: 12px sans-serif;
+  font-weight: normal;
+  text-align: center;
+  color: #444;
+  background: white; }
+
+#state-co2-emissions {
+  float: left;
+  width: 330px;
+  height: 150px;
+  margin-left: 10px; }
+
+#state-co2-emissions:hover {
+  background: #bbb;
+  border-radius: 20px; }
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges; }
+
+.x.axis path {
+  display: none; }
+
+.axis text {
+  font: 10px sans-serif; }
+
+.line {
+  fill: none;
+  stroke: black;
+  stroke-width: 1.7px; }
+
+.arrow {
+  fill: black;
+  stroke: black;
+  stroke-width: 3px; }
+
+#state-gen-capacity {
+  float: left;
+  width: 260px;
+  height: 130px; }
+
+#state-policy {
+  float: left;
+  width: 130px;
+  height: 130px; }
+
+.data-box-header {
+  display: block;
+  font: 16px sans-serif;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 20px; }
+
+#state-co2-emissions .data-box-header:first-child,
+#state-gen-capacity .data-box-header:first-child {
+  font-size: 14px;
+  margin-bottom: 2px; }
+
+#state-policy .data-box-header:first-child {
+  font-size: 14px;
+  margin-bottom: 10px; }
+
+#state-co2-emissions .data-box-header,
+#state-gen-capacity .data-box-header {
+  font-size: 12px;
+  margin-bottom: 10px; }
+
+#programs-box {
+  width: 100%;
+  height: 100px;
+  padding: 15px;
+  border: 1px solid #bbb;
+  border-radius: 20px;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  margin-left: 0px;
+  margin-right: 0px;
+  text-align: left;
+  font: 13px sans-serif;
+  color: #444;
+  background: white; }

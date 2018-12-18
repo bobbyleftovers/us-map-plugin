@@ -63,17 +63,23 @@ function crb_attach_theme_options() {
     Container::make( 'post_meta', 'Map Data and Options' )
     ->where('post_type', '=', 'map')
     ->add_tab('Map Settings', array(
-        Field::make( 'color', 'state_fill_color', 'State Fill Color' ),
-        Field::make( 'color', 'state_hover_color', 'State Hover Color' ),
-        Field::make( 'color', 'state_border_color', 'State Border Color' ),
+        Field::make( 'color', 'state_fill_color', 'State Fill Color' )
+            ->set_default_value( $default_value ),
+        Field::make( 'color', 'state_hover_color', 'State Hover Color' )
+            ->set_default_value( $default_value ),
+        Field::make( 'color', 'state_border_color', 'State Border Color' )
+            ->set_default_value( $default_value ),
+
+        // show DC? (affects state DD, frontend loop)
         Field::make( 'checkbox', 'show_dc', 'Show DC?' )
             ->set_option_value( 'false' )
-        // show DC? (affects state DD, frontend loop)
     ))
     ->add_tab( 'Data Settings', array(
         Field::make( 'text', 'data_label', 'Data Label' ),
-        Field::make( 'color', 'data_label_color', 'Data Label Color' ),
-        Field::make( 'color', 'data_border_color', 'Data Border Color' ),
+        Field::make( 'color', 'data_label_color', 'Data Label Color' )
+            ->set_default_value( $default_value ),
+        Field::make( 'color', 'data_border_color', 'Data Border Color' )
+            ->set_default_value( $default_value ),
         
         // spreaadsheet? (show csv uploader)
         Field::make( 'checkbox', 'has_spreadsheet', 'Use Spreadsheet Data?' )
@@ -85,6 +91,8 @@ function crb_attach_theme_options() {
                     'value' => true,
                 )
             ) ),
+
+        // download? (show state selector/state data uploader)
         Field::make( 'checkbox', 'has_downloads', 'Use Per-state Downloads' )
             ->set_option_value( 'false' ),
         Field::make( 'complex', 'states_array', 'States To Add' )
@@ -102,6 +110,5 @@ function crb_attach_theme_options() {
                     'value' => true,
                 )
             ) ),
-        // download? (show state selector/state data uploader)
     ));
 }

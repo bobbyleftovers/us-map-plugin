@@ -1,6 +1,5 @@
-
+import axios from 'axios';
 import Vue from 'vue';
-import router from './setup/router';
 import store from './setup/store';
 
 //LoDash cuse it awesome
@@ -26,11 +25,14 @@ Vue.prototype.$_window = window;
  * Startup Vue
  */
 
- require('./setup/main.js');
+require('./setup/main.js');
+
+// WP REST Test:
+axios.get('/wp-json/wp/v2/map/50668')
+    .then(res => {console.log(res.data)}) // works
 
 const app = new Vue({
-    el: '#app',
-    router,
+    el: '#us-map',
     store
 });
 
