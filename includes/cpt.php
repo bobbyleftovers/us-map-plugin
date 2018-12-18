@@ -1,7 +1,6 @@
 <?php
-namespace Mapping\CPT;
 
-// PERSON CPT
+// MAP CPT
 function cpt_map() {
 	$labels = array(
 		'name'                => 'Maps',
@@ -49,5 +48,6 @@ function cpt_map() {
 	);
 	register_post_type( 'map', $args );
 }
+
 // Hook into the 'init' action
-add_action( 'init', 'Mapping\CPT\cpt_map', 0 );
+add_action( 'init', 'cpt_map', 0 );

@@ -1,5 +1,4 @@
 <?php
-namespace Mapping\RESTController;
 
 class REST_Maps_Controller {
  
