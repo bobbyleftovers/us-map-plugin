@@ -65,9 +65,13 @@ function maps_add_custom_box()
 add_action('add_meta_boxes', 'maps_add_custom_box');
 
 function map_shortcode_box_html(){
-	global $post;?>
-	<p>Add this map and its data to any post by copy/pasting the following shortcode:</p>
-	<code>[USMap slug="<?=$post->post_name?>"]</code><?php
+	global $post;
+	if($post->post_name){?>
+		<p>Add this map and its data to any post by copy/pasting the following shortcode:</p>
+		<code>[USMap id="<?=$post->ID?>"]</code><?php
+	} else {
+		echo 'Save the map to see your shortcode here';
+	}
 	return;
 }
 
@@ -76,7 +80,7 @@ add_action( 'rest_api_init', 'map_meta_fields' );
 function map_meta_fields() {
  
 	// register_rest_field ( 'name-of-post-type', 'name-of-field-to-return', array-of-callbacks-and-schema() )
-	register_rest_field( 'map', 'post-meta', array(
+	register_rest_field( 'map', 'map_meta', array(
 		'get_callback' => 'map_post_meta',
 		'schema' => null,
 		)
@@ -86,7 +90,10 @@ function map_meta_fields() {
 function map_post_meta( $object ) {
 	//get the id of the post object array
 	$post_id = $object['id'];
+
+	$meta = [];
+	$meta['states_array'] = carbon_get_post_meta( $post_id, 'states_array' );
  
 	//return the post meta
-	return get_post_meta( $post_id );	
+	return $meta;	
 }

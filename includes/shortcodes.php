@@ -1,24 +1,30 @@
 <?php
 function display_map($atts){
+    
+    // Include scripts (Vue.js, etc)
+    wp_enqueue_script('map_vue_js',site_url().'/wp-content/plugins/Mapping/dist/bundle.js', [], false, true);
+    wp_enqueue_script('d3_js','https://d3js.org/d3.v3.min.js');
+    wp_enqueue_script('topojson_js','https://d3js.org/topojson.v1.min.js');
 
     ob_start();
+
     global $post;
-    if($atts['slug']):?>
+    if($atts['id']):?>
         <style>
             #states {
                 fill: #aaa;
-                .D {
-                    fill: #3B618C;
-                }
-                .R {
-                    fill: #E63A45;
-                }
-                .Both {
-                    fill: #3F3A6D;
-                }
-                .current {
-                    fill: black;
-                }
+            }
+            #states .D {
+                fill: #3B618C;
+            }
+            #states .R {
+                fill: #E63A45;
+            }
+            #states .Both {
+                fill: #3F3A6D;
+            }
+            #states .current {
+                fill: black;
             }
 
             #state-name {
@@ -59,7 +65,7 @@ function display_map($atts){
                 color: #444;
             }
         </style>
-        <div id="us-map" data-map="<?=$atts['slug']?>"></div><?php
+        <div id="us-map" data-map="<?=$atts['id']?>"><map-main /></div><?php
     endif;
     return ob_get_clean();
   

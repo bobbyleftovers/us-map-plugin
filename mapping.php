@@ -21,10 +21,7 @@ add_action( 'after_setup_theme', 'crb_load' );
 
 require('includes/cpt.php');
 require('includes/carbon.php');
-// require('includes/maps_rest_controller.php');
 require('includes/shortcodes.php');
 
-// Include dist scripts (Vue.js, etc)
-wp_enqueue_script('map_vue_js',site_url().'/wp-content/plugins/Mapping/dist/bundle.js', [], false, true);
-
 // Include some css (can be overridden by the theme)
+wp_enqueue_style('map_vue_css',site_url().'/wp-content/plugins/Mapping/dist/bundle.css');

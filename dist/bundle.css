@@ -159,13 +159,26 @@
   width: 100%;
   height: 100px;
   padding: 15px;
-  border: 1px solid #bbb;
+  border-width: 1px;
   border-radius: 20px;
   margin-top: 10px;
   margin-bottom: 5px;
   margin-left: 0px;
   margin-right: 0px;
   text-align: left;
-  font: 13px sans-serif;
-  color: #444;
-  background: white; }
+  font: 13px sans-serif; }
+
+#states {
+  fill: #aaa; }
+
+#states .D {
+  fill: #3B618C; }
+
+#states .R {
+  fill: #E63A45; }
+
+#states .Both {
+  fill: #3F3A6D; }
+
+#states .current {
+  fill: black; }
