@@ -1,23 +1,16 @@
-import axios from 'axios';
 import Vue from 'vue';
-import store from './setup/store';
-// import router from './setup/router';
-// import MapMain from './components/MapMain.vue';
+import MapMain from './components/MapMain';
+import BootstrapVue from 'bootstrap-vue';
+// import 'bootstrap/dist/css/bootstrap.css'; // comment this in if you need it
+import 'bootstrap-vue/dist/bootstrap-vue.css';
+
+Vue.use(BootstrapVue);
 
 //LoDash cuse it awesome
 window._ = require('lodash');
 
-/**
- * AXIOS
- */
-
-window.axios = require('axios');
-
 //import vue
 window.Vue = require('vue');
-
-//Bus for emits and ons
-window.Bus = new Vue();
 
 Vue.prototype.$_window = window;
 
@@ -25,7 +18,8 @@ Vue.prototype.$_window = window;
  * Startup Vue
  */
 
-require('./components/mapMain.js');
-const app = new Vue({
-    el: '#us-map',
-});
+new Vue({
+    components:{
+        MapMain
+    }
+}).$mount('#us-map');

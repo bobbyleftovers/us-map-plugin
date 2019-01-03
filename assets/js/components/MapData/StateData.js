@@ -29,9 +29,21 @@ const usmap = {
                 ]
                 ],
                 "properties": {
-                "ID": 10,
-                "STATE_ABBR": "HI",
-                    "STATE_NAME": "HAWAII"
+                    "ID": 10,
+                    "STATE_ABBR": "HI",
+                    "STATE_NAME": "HAWAII",
+                    "ICON": {
+                        rect:{
+                            x: 840,
+                            y: 320,
+                            w: 35,
+                            h: 35
+                        },
+                        text:{
+                            x: 848,
+                            y: 345
+                        }
+                    }
                 }
             },
             {
@@ -274,9 +286,21 @@ const usmap = {
                 ]
                 ],
                 "properties": {
-                "ID": 20,
-                "STATE_ABBR": "MA",
-                    "STATE_NAME": "MASSACHUSETTS"
+                    "ID": 20,
+                    "STATE_ABBR": "MA",
+                    "STATE_NAME": "MASSACHUSETTS",
+                    "ICON": {
+                        rect:{
+                            x: 800,
+                            y: 240,
+                            w: 35,
+                            h: 35
+                        },
+                        text:{
+                            x: 804,
+                            y: 265
+                        }
+                    }
                 }
             },
             {
@@ -346,9 +370,21 @@ const usmap = {
                 ]
                 ],
                 "properties": {
-                "ID": 6,
-                "STATE_ABBR": "CT",
-                    "STATE_NAME": "CONNECTICUT"
+                    "ID": 6,
+                    "STATE_ABBR": "CT",
+                    "STATE_NAME": "CONNECTICUT",
+                    "ICON": {
+                        rect:{
+                            x: 800,
+                            y: 320,
+                            w: 35,
+                            h: 35
+                        },
+                        text:{
+                            x: 805,
+                            y: 345
+                        }
+                    }
                 }
             },
             {
@@ -361,9 +397,21 @@ const usmap = {
                 ]
                 ],
                 "properties": {
-                "ID": 38,
-                "STATE_ABBR": "RI",
-                    "STATE_NAME": "RHODE ISLAND"
+                    "ID": 38,
+                    "STATE_ABBR": "RI",
+                    "STATE_NAME": "RHODE ISLAND",
+                    "ICON": {
+                        rect:{
+                            x: 800,
+                            y: 280,
+                            w: 35,
+                            h: 35
+                        },
+                        text:{
+                            x: 809,
+                            y: 305
+                        }
+                    }
                 }
             },
             {
@@ -377,9 +425,21 @@ const usmap = {
                 ]
                 ],
                 "properties": {
-                "ID": 29,
-                "STATE_ABBR": "NJ",
-                    "STATE_NAME": "NEW JERSEY"
+                    "ID": 29,
+                    "STATE_ABBR": "NJ",
+                    "STATE_NAME": "NEW JERSEY",
+                    "ICON": {
+                        rect:{
+                            x: 840,
+                            y: 280,
+                            w: 35,
+                            h: 35
+                        },
+                        text:{
+                            x: 846,
+                            y: 305
+                        }
+                    }
                 }
             },
             {
@@ -487,9 +547,21 @@ const usmap = {
             },
             {
                 "properties": {
-                "ID": 51,
-                "STATE_ABBR": "DC",
-                    "STATE_NAME": "DISTRICT OF COLUMBIA"
+                    "ID": 51,
+                    "STATE_ABBR": "DC",
+                    "STATE_NAME": "DISTRICT OF COLUMBIA",
+                    "ICON": {
+                        rect:{
+                            x: 800,
+                            y: 200,
+                            w: 35,
+                            h: 35
+                        },
+                        text:{
+                            x: 805,
+                            y: 225
+                        }
+                    }
                 }
             },
             {
@@ -503,9 +575,21 @@ const usmap = {
                 ]
                 ],
                 "properties": {
-                "ID": 7,
-                "STATE_ABBR": "DE",
-                    "STATE_NAME": "DELAWARE"
+                    "ID": 7,
+                    "STATE_ABBR": "DE",
+                    "STATE_NAME": "DELAWARE",
+                    "ICON": {
+                        rect:{
+                            x: 840,
+                            y: 200,
+                            w: 35,
+                            h: 35
+                        },
+                        text:{
+                            x: 845,
+                            y: 225
+                        }
+                    }
                 }
             },
             {
@@ -520,9 +604,10 @@ const usmap = {
                 ]
                 ],
                 "properties": {
-                "ID": 47,
-                "STATE_ABBR": "WV",
-                    "STATE_NAME": "WEST VIRGINIA"
+                    "ID": 47,
+                    "STATE_ABBR": "WV",
+                    "STATE_NAME": "WEST VIRGINIA",
+                    "ICON": {}
                 }
             },
             {
@@ -537,9 +622,21 @@ const usmap = {
                 ]
                 ],
                 "properties": {
-                "ID": 19,
-                "STATE_ABBR": "MD",
-                    "STATE_NAME": "MARYLAND"
+                    "ID": 19,
+                    "STATE_ABBR": "MD",
+                    "STATE_NAME": "MARYLAND",
+                    "ICON": {
+                        rect:{
+                            x: 840,
+                            y: 240,
+                            w: 35,
+                            h: 35
+                        },
+                        text:{
+                            x: 844,
+                            y: 265
+                        }
+                    }
                 }
             },
             {
@@ -5828,5 +5925,3 @@ const usmap = {
 }
 
 export default usmap;
-
-// export const setOptions = (options) => { config = options }

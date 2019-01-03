@@ -20,6 +20,7 @@ function crb_load() {
 add_action( 'after_setup_theme', 'crb_load' );
 
 require('includes/cpt.php');
+require('includes/ajax.php');
 require('includes/carbon.php');
 require('includes/shortcodes.php');
 

@@ -92,7 +92,28 @@ function map_post_meta( $object ) {
 	$post_id = $object['id'];
 
 	$meta = [];
+	$style = [];
+	
+	// Color, etc
+	$style['map']['inactive'] = carbon_get_post_meta($post_id, 'state_inactive_color');
+	$style['map']['initial'] = carbon_get_post_meta($post_id, 'state_fill_color');
+	$style['map']['hover'] = carbon_get_post_meta($post_id, 'state_hover_color');
+	$style['map']['clicked'] = carbon_get_post_meta($post_id, 'state_selected_color');
+	$style['map']['borders'] = carbon_get_post_meta($post_id, 'state_border_color');
+	$style['dataViewer']['placeholderHeading'] = carbon_get_post_meta($post_id, 'data_empty_heading');
+	$style['dataViewer']['data_label_color'] = carbon_get_post_meta($post_id, 'data_label_color');
+	$style['dataViewer']['data_border_color'] = carbon_get_post_meta($post_id, 'data_border_color');
+	$meta['style'] = $style;
+
+	// data
 	$meta['states_array'] = carbon_get_post_meta( $post_id, 'states_array' );
+	$meta['show_dc'] = carbon_get_post_meta($post_id, 'show_dc');
+	$meta['show_small_state_icons'] = carbon_get_post_meta($post_id, 'show_small_state_icons');
+	$meta['has_csv'] = carbon_get_post_meta($post_id, 'has_csv');
+	$meta['map_csv'] = carbon_get_post_meta($post_id, 'map_csv');
+	$meta['has_downloads'] = carbon_get_post_meta($post_id, 'has_downloads');
+	$meta['show_inactive'] = carbon_get_post_meta($post_id, 'show_inactive');
+	$meta['post_meta'] = get_post_meta($post_id);
  
 	//return the post meta
 	return $meta;	

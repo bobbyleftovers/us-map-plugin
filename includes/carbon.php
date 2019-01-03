@@ -60,45 +60,57 @@ function crb_attach_theme_options() {
         'WY' => 'Wyoming',
     ];
 
-    Container::make( 'post_meta', 'Map Data and Options' )
+    Container::make( 'post_meta', 'Map Setup' )
     ->where('post_type', '=', 'map')
-    ->add_tab('Map Settings', array(
+    
+    ->add_tab('Map', array(
+        // setup fields
+        Field::make( 'checkbox', 'show_dc', 'Show DC' )
+            ->set_option_value( 'false' ),
+        Field::make( 'checkbox', 'show_small_state_icons', 'Show Icons for small states and districts' )
+            ->set_option_value( 'false' ),
+        
+        // style fields
         Field::make( 'color', 'state_fill_color', 'State Initial Color' )
             ->set_default_value( '#aaaaaa' ),
-        Field::make( 'color', 'state_inactive_color', 'Inactive State Color' )
-            ->set_default_value( '#8a8a8a' ),
         Field::make( 'color', 'state_hover_color', 'State Hover Color' )
             ->set_default_value( '#f05e30' ),
         Field::make( 'color', 'state_selected_color', 'State Selected Color' )
             ->set_default_value( '#88100d' ),
         Field::make( 'color', 'state_border_color', 'State Border Color' )
             ->set_default_value( '#ffffff' ),
-
-        // show DC? (affects state DD, frontend loop)
-        Field::make( 'checkbox', 'show_dc', 'Show DC?' )
-            ->set_option_value( 'false' )
     ))
-    ->add_tab( 'Data Settings', array(
-        Field::make( 'text', 'data_main_heading', 'Main Heading' ),
+
+    ->add_tab('Viewer Window', array(
+        Field::make( 'text', 'data_empty_heading', 'Window Heading (When no state is selected)' )
+        ->set_default_value( 'CLICK A STATE TO VIEW DATA' ),
         Field::make( 'color', 'data_label_color', 'Data Label Color' )
             ->set_default_value( $default_value ),
         Field::make( 'color', 'data_border_color', 'Data Border Color' )
             ->set_default_value( $default_value ),
         
-        // spreaadsheet? (show csv uploader)
-        Field::make( 'checkbox', 'has_spreadsheet', 'Use Spreadsheet Data?' )
+        // spreadsheet? (show csv uploader)
+        Field::make( 'checkbox', 'has_csv', 'Use CSV Data?' )
             ->set_option_value( 'false' ),
-        Field::make( 'file', 'data_spreasheet', 'CSV File (must have .csv file type)')
+        Field::make( 'file', 'map_csv', 'CSV File')
+            // ->set_type( 'csv' )
+            ->set_value_type( 'url' )
             ->set_conditional_logic( array(
                 array(
-                    'field' => 'has_spreadsheet',
+                    'field' => 'has_csv',
                     'value' => true,
                 )
             ) ),
 
         // download? (show state selector/state data uploader)
         Field::make( 'checkbox', 'has_downloads', 'Use Per-state Downloads' )
-            ->set_option_value( 'false' ),
+            ->set_option_value( 'false' )
+            ->set_conditional_logic( array(
+                array(
+                    'field' => 'has_csv',
+                    'value' => false,
+                )
+            ) ),
         Field::make( 'complex', 'states_array', 'States To Add' )
             ->add_fields( array(
                 Field::make( 'select', 'state', 'Select a State' )
@@ -107,7 +119,7 @@ function crb_attach_theme_options() {
                     ->add_fields( array(
                         Field::make( 'checkbox', 'is_download', 'Add File? (default is a link)' )
                             ->set_option_value( 'false' ),
-                        Field::make( 'text', 'array_item_label', 'Item Label'),
+                        Field::make( 'text', 'array_item_label', 'Item Header'),
                         Field::make( 'file', 'state_download', 'Downloadable File')
                             ->set_value_type( 'url' )
                             ->set_conditional_logic( array(
@@ -116,13 +128,7 @@ function crb_attach_theme_options() {
                                     'value' => true,
                                 )
                             ) ),
-                        Field::make( 'text', 'state_url', 'URL (Opens in a separate tab)')
-                            ->set_conditional_logic( array(
-                                array(
-                                    'field' => 'is_download',
-                                    'value' => false,
-                                )
-                            ) ),
+                        Field::make( 'text', 'array_item_data', 'Item Copy')
                     ))
             ) )
             ->set_conditional_logic( array(
