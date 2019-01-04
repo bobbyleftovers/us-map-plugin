@@ -28,7 +28,7 @@
         <div class='data-info row'>
             <MapWindowItem
                 v-for="(item,i) in state.data"
-                class="col-xs-12 col-sm-6 col-md-12 col-lg-6"
+                class="col-xs-12 col-sm-6 col-md-6 col-lg-6"
                 :key="'data-' + i"
                 :state="item" />
         </div>

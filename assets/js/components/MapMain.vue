@@ -19,6 +19,7 @@
         data() {
             return {
                 mapLoading: true,
+                dataLoading: true,
                 mapData: {},
                 mapID: document.getElementById('us-map').getAttribute('data-map'),
                 stateData: [],
@@ -67,7 +68,6 @@
 
                         // build the map
                         this.setupMap()
-                        this.mapLoading = false;
 
                     })
                     .catch(error => {
@@ -232,6 +232,8 @@
                     .attr('d', path)
                     .attr('stroke',svgStyles.borders);
 
+                this.mapLoading = false;
+
             },
 
             // process the styles for use in the components
@@ -330,25 +332,32 @@
 </script>
 <template>
     <div :id="'rr-us-map-' + mapID" class="rr-us-map">
-        <div id="data-box" class="col-md-5">
-            <MapWindowMain
-                v-if="selectedState"
-                :styles="windowStyle"
-                :state="selectedState"
-            />
-            <div v-else class="data-preview">
-                <span>{{windowStyle.placeholderHeading}}</span>
+        <div v-if="mapLoading" class="loader">
+            <div class="map-init">
+                <span>Loading map data... <i class="fa fa-sync"></i></span>
             </div>
         </div>
-        <div class='col-md-7 hidden-xs visible-sm visible-md visible-lg'>
-            <div class='map-container'>
-                <div id='map'></div>
+        <div class="map-wrapper">
+            <div id="data-box" class="col-md-5">
+                <MapWindowMain
+                    v-if="selectedState"
+                    :styles="windowStyle"
+                    :state="selectedState"
+                />
+                <div v-else class="data-preview map-init">
+                    <span>{{windowStyle.placeholderHeading}}</span>
+                </div>
             </div>
-        </div>
-        <div v-if="stateData.length > 0">
-            <MobileViewer
-                :states="stateData"
-            />
+            <div class='col-md-7 hidden-xs visible-sm visible-md visible-lg'>
+                <div class='map-container'>
+                    <div id='map'></div>
+                </div>
+            </div>
+            <div v-if="stateData.length > 0">
+                <MobileViewer
+                    :states="stateData"
+                />
+            </div>
         </div>
     </div>
 </template>
